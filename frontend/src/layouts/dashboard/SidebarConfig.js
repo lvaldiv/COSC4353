@@ -36,6 +36,11 @@ const sidebarConfig = [
     title: 'register',
     path: '/register',
     icon: getIcon(personAddFill)
+  },
+  {
+    title: 'fuel',
+    path: '/fuel',
+    icon: getIcon(personAddFill)
   }
 ];
 
