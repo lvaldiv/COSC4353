@@ -1,4 +1,6 @@
 import * as Yup from 'yup';
+import * as React from "react";
+import { AutoComplete, ComboBox, MultiColumnComboBox, DropDownList, MultiSelect, DropDownTree } from '@progress/kendo-react-dropdowns';
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { useFormik, Form, FormikProvider } from 'formik';
@@ -14,6 +16,56 @@ import { LoadingButton } from '@mui/lab';
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const States = ["AL - Alabama",
+    "AK - Alaska",
+    "AZ - Arizona",
+    "AR - Arkansas",
+    "CA - California",
+    'CO - Colorado',
+    "CT - Connecticut",
+    "DE - Delaware",
+    "FL - Florida",
+    "GA - Georgia",
+    'HI - Hawaii',
+    'ID - Idaho',
+    'IL - Illinois',
+    'IN - Indiana',
+    'IA - Iowa',
+    'KS - Kansas',
+    'KY - Kentucky',
+    'LA - Louisiana',
+    'ME - Maine',
+    'MD - Maryland',
+    'MA - Massachusetts',
+    'MI - Michigan',
+    'MN - Minnesota',
+    'MS - Mississippi',
+    'MO - Missouri',
+    'MT - Montana',
+    'NE - Nebraska',
+    'NV - Nevada',
+    'NH - New Hampshire',
+    'NJ - New Jersey',
+    'NM - New Mexico',
+    'NY - New York',
+    'NC - North Carolina',
+    'ND - North Dakota',
+    'OH - Ohio',
+    'OK - Oklahoma',
+    'OR - Oregon',
+    'PA - Pennsylvania',
+    'RI - Rhode Island',
+    'SC - South Carolina',
+    'SD - South Dakota',
+    'TN - Tennessee',
+    'TX - Texas',
+    'UT - Utah',
+    'VA - Virginia',
+    'VT - Vermont',
+    'WA - Washington',
+    'WI - Wisconsin',
+    'WV - West Virginia',
+    'WY - Wyoming'];
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -86,7 +138,7 @@ export default function RegisterForm() {
             fullWidth
             autoComplete="address"
             type="Address2"
-            label="Address2(Optional)"
+            label="Address2 (Optional)"
             {...getFieldProps('Address2')}
             error={Boolean(touched.Address2 && errors.Address2)}
             helperText={touched.Address2 && errors.Address2}
