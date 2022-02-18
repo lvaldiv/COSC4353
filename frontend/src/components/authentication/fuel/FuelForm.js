@@ -25,8 +25,8 @@ export default function FuelForm() {
 
   const FuelSchema = Yup.object().shape({
     Gallons: Yup.number().required('Number is required').positive('Number must be positive'),
-    Address: Yup.string().min(2, 'Too Short!').max(100, 'Too Long').required('Address is required'),
-    SuggestedPrice: Yup.number().required()
+    // Address: Yup.string().min(2, 'Too Short!').max(100, 'Too Long').required('Address is required'),
+    // SuggestedPrice: Yup.number().required()
   });
 
   const formik = useFormik({
@@ -67,6 +67,7 @@ export default function FuelForm() {
             type = "Address"
             label="Delivery Address: "
             {...getFieldProps('Address')}
+            contentEditable= {false}
             error={Boolean(touched.Address && errors.Address)}
             helperText={touched.Address && errors.Address}
           />
