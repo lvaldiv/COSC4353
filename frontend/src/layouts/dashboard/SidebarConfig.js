@@ -32,11 +32,11 @@ const sidebarConfig = [
     path: '/dashboard/app',
     icon: getIcon(shoppingBagFill)
   },
-  {
-    title: 'fuel',
-    path: '/fuel',
-    icon: getIcon(personAddFill)
-  },
+//   {
+//     title: 'fuel',
+//     path: '/fuel',
+//     icon: getIcon(personAddFill)
+//   },
   // {
   //   title: 'Fuel1',
   //   path: '/dashboard/app',
