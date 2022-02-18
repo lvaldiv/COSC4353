@@ -10,62 +10,65 @@ import { useNavigate } from 'react-router-dom';
 // material
 import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+// import { Dropdown, Menu } from 'semantic-ui-react'
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const States = ["AL - Alabama",
-    "AK - Alaska",
-    "AZ - Arizona",
-    "AR - Arkansas",
-    "CA - California",
-    'CO - Colorado',
-    "CT - Connecticut",
-    "DE - Delaware",
-    "FL - Florida",
-    "GA - Georgia",
-    'HI - Hawaii',
-    'ID - Idaho',
-    'IL - Illinois',
-    'IN - Indiana',
-    'IA - Iowa',
-    'KS - Kansas',
-    'KY - Kentucky',
-    'LA - Louisiana',
-    'ME - Maine',
-    'MD - Maryland',
-    'MA - Massachusetts',
-    'MI - Michigan',
-    'MN - Minnesota',
-    'MS - Mississippi',
-    'MO - Missouri',
-    'MT - Montana',
-    'NE - Nebraska',
-    'NV - Nevada',
-    'NH - New Hampshire',
-    'NJ - New Jersey',
-    'NM - New Mexico',
-    'NY - New York',
-    'NC - North Carolina',
-    'ND - North Dakota',
-    'OH - Ohio',
-    'OK - Oklahoma',
-    'OR - Oregon',
-    'PA - Pennsylvania',
-    'RI - Rhode Island',
-    'SC - South Carolina',
-    'SD - South Dakota',
-    'TN - Tennessee',
-    'TX - Texas',
-    'UT - Utah',
-    'VA - Virginia',
-    'VT - Vermont',
-    'WA - Washington',
-    'WI - Wisconsin',
-    'WV - West Virginia',
-    'WY - Wyoming'];
+  const States = [
+    {text: 'AL - Alabama'},
+    {text: "AK - Alaska"},
+    {text: "AZ - Arizona"},
+    {text: "AR - Arkansas"},
+    {text: "CA - California"},
+    {text:'CO - Colorado'},
+    {text:"CT - Connecticut"},
+    {text:"DE - Delaware"},
+    {text:"FL - Florida"},
+    {text:"GA - Georgia"},
+    {text:'HI - Hawaii'},
+    {text:'ID - Idaho'},
+    {text:'IL - Illinois'},
+    {text:'IN - Indiana'},
+    {text:'IA - Iowa'},
+    {text:'KS - Kansas'},
+    {text:'KY - Kentucky'},
+    {text:'LA - Louisiana'},
+    {text:'ME - Maine'},
+    {text:'MD - Maryland'},
+    {text:'MA - Massachusetts'},
+    {text:'MI - Michigan'},
+    {text:'MN - Minnesota'},
+    {text:'MS - Mississippi'},
+    {text:'MO - Missouri'},
+    {text:'MT - Montana'},
+    {text:'NE - Nebraska'},
+    {text:'NV - Nevada'},
+    {text:'NH - New Hampshire'},
+    {text:'NJ - New Jersey'},
+    {text:'NM - New Mexico'},
+    {text:'NY - New York'},
+    {text:'NC - North Carolina'},
+    {text:'ND - North Dakota'},
+    {text:'OH - Ohio'},
+    {text:'OK - Oklahoma'},
+    {text:'OR - Oregon'},
+    {text:'PA - Pennsylvania'},
+    {text:'RI - Rhode Island'},
+    {text:'SC - South Carolina'},
+    {text:'SD - South Dakota'},
+    {text:'TN - Tennessee'},
+    {text:'TX - Texas'},
+    {text:'UT - Utah'},
+    {text:'VA - Virginia'},
+    {text:'VT - Vermont'},
+    {text:'WA - Washington'},
+    {text:'WI - Wisconsin'},
+    {text:'WV - West Virginia'},
+    {text:'WY - Wyoming'}
+  ];
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -99,6 +102,12 @@ export default function RegisterForm() {
       navigate('/dashboard', { replace: true });
     }
   });
+
+  // const DropdownExampleSimple = () => (
+  //   <Menu compact>
+  //     <Dropdown text='Dropdown' options={States} simple item />
+  //   </Menu>
+  // )
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
@@ -143,17 +152,17 @@ export default function RegisterForm() {
             error={Boolean(touched.Address2 && errors.Address2)}
             helperText={touched.Address2 && errors.Address2}
           />
-
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <TextField
               fullWidth
-              autoComplete="city"
-              type="City"
-              label="City"
-              {...getFieldProps('City')}
-              error={Boolean(touched.City && errors.City)}
-              helperText={touched.City && errors.City}
+              autoComplete = "city"
+              type = "City"
+              label = "City"
+              {...getFieldProps('City') }
+              error = { Boolean(touched.City && errors.City) }
+              helperText = { touched.City && errors.City }
             />
+
             <TextField
               fullWidth
               autoComplete="state"
@@ -162,57 +171,88 @@ export default function RegisterForm() {
               {...getFieldProps('State')}
               error={Boolean(touched.State && errors.State)}
               helperText={touched.State && errors.State}
-            />
+            >
+              {/* <div class="ui compact menu">
+                <div role="listbox" aria-expanded="false" class="ui item simple dropdown" tabindex="0">
+                  <div aria-atomic="true" aria-live="polite" role="alert" class="divider text">
+                    Dropdown
+                  </div>
+                  <i aria-hidden="true" class="dropdown icon"></i>
+                  <div class="menu transition">
+                    <div style="pointer-events:all" role="option" aria-checked="false" aria-selected="true" class="selected item">
+                      <span class="text">
+                        Choice 1
+                      </span>
+                    </div>
+                    <div style="pointer-events:all" role="option" aria-checked="false" aria-selected="false" class="item">
+                      <span class="text">
+                        Choice 2
+                      </span>
+                    </div>
+                    <div style="pointer-events:all" role="option" aria-checked="false" aria-selected="false" class="item">
+                      <span class="text">
+                        Choice 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+            </TextField>
+
             <TextField
               fullWidth
-              autoComplete="zipcode"
-              type="ZipCode"
-              label="ZipCode"
-              {...getFieldProps('ZipCode')}
-              error={Boolean(touched.ZipCode && errors.ZipCode)}
-              helperText={touched.ZipCode && errors.ZipCode}
+              autoComplete = "zipcode"
+              type = "ZipCode"
+              label = "ZipCode"
+              {...getFieldProps('ZipCode') }
+              error = { Boolean(touched.ZipCode && errors.ZipCode) }
+              helperText = { touched.ZipCode && errors.ZipCode }
             />
-          </Stack>
-          <TextField
-            fullWidth
-            autoComplete="username"
-            type="email"
-            label="Email address"
-            {...getFieldProps('email')}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
-          />
+        </Stack>
 
-          <TextField
-            fullWidth
-            autoComplete="current-password"
-            type={showPassword ? 'text' : 'password'}
-            label="Password"
-            {...getFieldProps('password')}
-            InputProps={{
+        <TextField
+          fullWidth
+          autoComplete = "username"
+          type = "email"
+          label = "Email address"
+          {...getFieldProps('email') }
+          error = { Boolean(touched.email && errors.email) }
+          helperText = { touched.email && errors.email }
+        />
+
+        <TextField
+          fullWidth
+          autoComplete = "current-password"
+          type = { showPassword ? 'text' : 'password' }
+          label = "Password" {...getFieldProps('password') }
+          InputProps = {
+            {
               endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton edge="end" onClick={() => setShowPassword((prev) => !prev)}>
-                    <Icon icon={showPassword ? eyeFill : eyeOffFill} />
+                <InputAdornment position = "end" >
+                  <IconButton edge = "end"
+                    onClick = {
+                        () => setShowPassword((prev) => !prev)
+                    } >
+                    <Icon icon = { showPassword ? eyeFill : eyeOffFill }/>
                   </IconButton>
                 </InputAdornment>
               )
-            }}
-            error={Boolean(touched.password && errors.password)}
-            helperText={touched.password && errors.password}
-          />
+            }
+          }
+        error = { Boolean(touched.password && errors.password) }
+        helperText = { touched.password && errors.password }
+        />
 
-          <LoadingButton
-            fullWidth
-            size="large"
-            type="submit"
-            variant="contained"
-            loading={isSubmitting}
-          >
-            Register
-          </LoadingButton>
+        <LoadingButton
+          fullWidth
+          size = "large"
+          type = "submit"
+          variant = "contained"
+          loading = { isSubmitting } >
+          Register
+        </LoadingButton>
         </Stack>
-      </Form>
-    </FormikProvider>
+        </Form>
+        </FormikProvider>
   );
 }
