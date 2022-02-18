@@ -79,17 +79,17 @@ export default function FuelForm() {
             error={Boolean(touched.SuggestedPrice && errors.SuggestedPrice)}
             helperText={touched.SuggestedPrice && errors.SuggestedPrice}
           />
-        </Stack>
 
-        <LoadingButton
-          fullWidth
-          size="large"
-          type="submit"
-          variant="contained"
-          loading={isSubmitting}
-        >
-          Submit
-        </LoadingButton>
+          <LoadingButton
+            fullWidth
+            size="large"
+            type="submit"
+            variant="contained"
+            loading={isSubmitting}
+          >
+            Submit
+          </LoadingButton>
+        </Stack>
       </Form>
     </FormikProvider>
   );
