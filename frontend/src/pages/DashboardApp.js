@@ -79,16 +79,10 @@
 
 import { Link as RouterLink } from 'react-router-dom';
 // material
-<<<<<<< HEAD
 import { styled } from '@mui/material/styles';
 import { Card, Stack, Link, Container, Box, Typography } from '@mui/material';
 // layouts
 import AuthLayout from '../layouts/AuthLayout';
-=======
-import { Box, Grid, Container, Typography } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
-import { useFormik, Form, FormikProvider } from 'formik';
->>>>>>> Lee_Dev
 // components
 import Page from '../components/Page';
 import { MHidden } from '../components/@material-extend';
