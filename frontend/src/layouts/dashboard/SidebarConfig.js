@@ -22,26 +22,11 @@ const sidebarConfig = [
     path: '/login',
     icon: getIcon(lockFill)
   },
-   {
-    title: 'Fuel1',
+  {
+    title: 'Fuel',
     path: '/dashboard/app',
     icon: getIcon(shoppingBagFill)
   },
-  {
-    title: 'Fuel1',
-    path: '/dashboard/app',
-    icon: getIcon(shoppingBagFill)
-  },
-  {
-    title: 'fuel',
-    path: '/fuel',
-    icon: getIcon(personAddFill)
-  },
-  // {
-  //   title: 'Fuel1',
-  //   path: '/dashboard/app',
-  //   icon: getIcon(shoppingBagFill)
-  // },
   {
     title: 'Quote History',
     path: '/dashboard/user',
