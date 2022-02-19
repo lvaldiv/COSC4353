@@ -27,6 +27,7 @@ export default function FuelForm() {
     Gallons: Yup.number().required('Number is required').positive('Number must be positive'),
     // Address: Yup.string().min(2, 'Too Short!').max(100, 'Too Long').required('Address is required'),
     // SuggestedPrice: Yup.number().required()
+    DeliveryDate: Yup.string().required('Date is required')
   });
 
   const formik = useFormik({
@@ -34,6 +35,7 @@ export default function FuelForm() {
       Gallons: null,
       Address: '',
       SuggestedPrice: null,
+      DeliveryDate: '',
       remember: true
     },
     validationSchema: FuelSchema,
@@ -43,10 +45,6 @@ export default function FuelForm() {
   });
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
-
-//  const handleShowPassword = () => {
-//    setShowPassword((show) => !show);
-//  };
 
   return (
     <FormikProvider value={formik}>
@@ -70,6 +68,17 @@ export default function FuelForm() {
             contentEditable= {false}
             error={Boolean(touched.Address && errors.Address)}
             helperText={touched.Address && errors.Address}
+          />
+
+          <TextField
+            fullWidth
+            type = "Date"
+            label="Delivery date"
+            {...getFieldProps('Date')}
+            InputLabelProps={{shrink:true}}
+            contentEditable= {false}
+            error={Boolean(touched.DeliveryDate && errors.DeliveryDate)}
+            helperText={touched.DeliveryDate && errors.DeliveryDate}
           />
 
           <TextField
